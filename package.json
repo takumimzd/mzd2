@@ -13,7 +13,15 @@
     "lint:fix": "next lint --dir src --fix",
     "format": "prettier --write --ignore-path .gitignore 'src/**/*.{js,jsx,ts,tsx,json}' 'prisma/**/*.prisma'"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
+    "@mantine/core": "^6.0.15",
+    "@mantine/hooks": "^6.0.15",
+    "@mantine/next": "^6.0.15",
     "@prisma/client": "^4.16.2",
     "axios": "^1.4.0",
     "next": "13.4.7",

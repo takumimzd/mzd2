@@ -21,6 +21,7 @@ model Recipe {
   id          Int                @id @default(autoincrement())
   name        String
   description String
+  imageUrl    String
   userId      Int
   user        User               @relation(fields: [userId], references: [id])
   ingredients RecipeIngredient[]
