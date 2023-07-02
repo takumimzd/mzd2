@@ -1,13 +1,10 @@
 import Head from 'next/head';
-import useSWR from 'swr';
+import { useGetApiRecipes } from '@/apis';
 
 export default function Home() {
-  const fetcher = async () => {
-    return (await fetch('/api/recipes')).json();
-  };
-  const { data } = useSWR('/api/recipes', fetcher);
+  const { data: response } = useGetApiRecipes();
 
-  if (!data) return null;
+  if (!response) return null;
   return (
     <>
       <Head>
