@@ -18,11 +18,43 @@ model User {
 }
 
 model Recipe {
-  id          Int    @id @default(autoincrement())
-  title       String
+  id          Int                @id @default(autoincrement())
+  name        String
   description String
   userId      Int
-  user        User   @relation(fields: [userId], references: [id])
+  user        User               @relation(fields: [userId], references: [id])
+  ingredients RecipeIngredient[]
+  recipeSteps RecipeStep[]
 
   @@index([userId])
+}
+
+model RecipeIngredient {
+  id       Int    @id @default(autoincrement())
+  name     String
+  amount   String
+  recipeId Int
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+
+  @@index([recipeId])
+}
+
+model RecipeStep {
+  id               Int               @id @default(autoincrement())
+  order            Int
+  description      String
+  recipeId         Int
+  recipe           Recipe            @relation(fields: [recipeId], references: [id])
+  recipeStepImages RecipeStepImage[]
+
+  @@index([recipeId])
+}
+
+model RecipeStepImage {
+  id           Int        @id @default(autoincrement())
+  imageUrl     String
+  recipeStepId Int
+  recipeStep   RecipeStep @relation(fields: [recipeStepId], references: [id])
+
+  @@index([recipeStepId])
 }
