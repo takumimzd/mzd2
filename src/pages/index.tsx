@@ -1,10 +1,6 @@
 import Head from 'next/head';
-import { useGetApiRecipes } from '@/apis';
 
 export default function Home() {
-  const { data: response } = useGetApiRecipes();
-
-  if (!response) return null;
   return (
     <>
       <Head>
