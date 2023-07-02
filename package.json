@@ -7,11 +7,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "ps": "npx prisma studio",
+    "pdp": "npx prisma db push",
     "lint": "next lint --dir src",
     "lint:fix": "next lint --dir src --fix",
-    "format": "prettier --write --ignore-path .gitignore 'src/**/*.{js,jsx,ts,tsx,json}'"
+    "format": "prettier --write --ignore-path .gitignore 'src/**/*.{js,jsx,ts,tsx,json}' 'prisma/**/*.prisma'"
   },
   "dependencies": {
+    "@prisma/client": "^4.16.2",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -30,6 +33,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.8",
+    "prettier-plugin-prisma": "^4.13.0",
+    "prisma": "^4.16.2",
     "typescript": "5.1.6"
   },
   "lint-staged": {
