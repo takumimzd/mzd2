@@ -8,7 +8,7 @@ import axios from 'axios';
 import type { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import useSwr from 'swr';
 import type { SWRConfiguration, Key } from 'swr';
-import type { Recipe, RecipeIngredient, RecipeStep, User } from './types';
+import type { Recipe, RecipeIngredient, RecipeStep, User } from './index.schemas';
 
 /**
  * @summary Get all recipes
