@@ -15,10 +15,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Recipe'
-  /api/recipes/{id}:
+  /api/recipes/{recipeId}:
     parameters:
       - in: path
-        name: id
+        name: recipeId
         schema:
           type: integer
         required: true
@@ -31,6 +31,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Recipe'
+  /api/recipes/{recipeId}/ingredients:
+    parameters:
+      - in: path
+        name: recipeId
+        schema:
+          type: integer
+        required: true
+    get:
+      summary: Get a recipe ingredients by recipeId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecipeIngredient'
+  /api/recipes/{recipeId}/steps:
+    parameters:
+      - in: path
+        name: recipeId
+        schema:
+          type: integer
+        required: true
+    get:
+      summary: Get a recipe steps by recipeId
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecipeStep'
   /api/users:
     get:
       summary: Get all users
@@ -43,10 +79,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-  /api/users/{id}:
+  /api/users/{userId}:
     parameters:
       - in: path
-        name: id
+        name: userId
         schema:
           type: integer
         required: true
@@ -87,3 +123,48 @@ components:
       required:
         - id
         - name
+    RecipeIngredient:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        amount:
+          type: string
+        recipeId:
+          type: integer
+      required:
+        - id
+        - name
+        - amount
+        - recipeId
+    RecipeStep:
+      type: object
+      properties:
+        id:
+          type: integer
+        order:
+          type: integer
+        description:
+          type: string
+        recipeId:
+          type: integer
+      required:
+        - id
+        - order
+        - description
+        - recipeId
+    RecipeStepImage:
+      type: object
+      properties:
+        id:
+          type: integer
+        imageUrl:
+          type: string
+        recipeStepId:
+          type: integer
+      required:
+        - id
+        - imageUrl
+        - recipeStepId

@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Recipe | null>) {
   const recipe = await prisma.recipe.findUnique({
     where: {
-      id: Number(req.query.id),
+      id: Number(req.query.recipeId),
     },
   });
   res.status(200).json(recipe);

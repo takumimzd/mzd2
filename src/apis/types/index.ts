@@ -6,4 +6,7 @@
  */
 
 export * from './recipe';
+export * from './recipeIngredient';
+export * from './recipeStep';
+export * from './recipeStepImage';
 export * from './user';

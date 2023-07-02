@@ -8,7 +8,7 @@ import axios from 'axios';
 import type { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import useSwr from 'swr';
 import type { SWRConfiguration, Key } from 'swr';
-import type { Recipe, User } from './types';
+import type { Recipe, RecipeIngredient, RecipeStep, User } from './types';
 
 /**
  * @summary Get all recipes
@@ -49,25 +49,28 @@ export const useGetApiRecipes = <TError = AxiosError<unknown>>(options?: {
 /**
  * @summary Get a recipe by ID
  */
-export const getApiRecipesId = (
-  id: number,
+export const getApiRecipesRecipeId = (
+  recipeId: number,
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<Recipe>> => {
-  return axios.get(`/api/recipes/${id}`, options);
+  return axios.get(`/api/recipes/${recipeId}`, options);
 };
 
-export const getGetApiRecipesIdKey = (id: number) => [`/api/recipes/${id}`] as const;
+export const getGetApiRecipesRecipeIdKey = (recipeId: number) =>
+  [`/api/recipes/${recipeId}`] as const;
 
-export type GetApiRecipesIdQueryResult = NonNullable<Awaited<ReturnType<typeof getApiRecipesId>>>;
-export type GetApiRecipesIdQueryError = AxiosError<unknown>;
+export type GetApiRecipesRecipeIdQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getApiRecipesRecipeId>>
+>;
+export type GetApiRecipesRecipeIdQueryError = AxiosError<unknown>;
 
 /**
  * @summary Get a recipe by ID
  */
-export const useGetApiRecipesId = <TError = AxiosError<unknown>>(
-  id: number,
+export const useGetApiRecipesRecipeId = <TError = AxiosError<unknown>>(
+  recipeId: number,
   options?: {
-    swr?: SWRConfiguration<Awaited<ReturnType<typeof getApiRecipesId>>, TError> & {
+    swr?: SWRConfiguration<Awaited<ReturnType<typeof getApiRecipesRecipeId>>, TError> & {
       swrKey?: Key;
       enabled?: boolean;
     };
@@ -76,9 +79,103 @@ export const useGetApiRecipesId = <TError = AxiosError<unknown>>(
 ) => {
   const { swr: swrOptions, axios: axiosOptions } = options ?? {};
 
-  const isEnabled = swrOptions?.enabled !== false && !!id;
-  const swrKey = swrOptions?.swrKey ?? (() => (isEnabled ? getGetApiRecipesIdKey(id) : null));
-  const swrFn = () => getApiRecipesId(id, axiosOptions);
+  const isEnabled = swrOptions?.enabled !== false && !!recipeId;
+  const swrKey =
+    swrOptions?.swrKey ?? (() => (isEnabled ? getGetApiRecipesRecipeIdKey(recipeId) : null));
+  const swrFn = () => getApiRecipesRecipeId(recipeId, axiosOptions);
+
+  const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions);
+
+  return {
+    swrKey,
+    ...query,
+  };
+};
+
+/**
+ * @summary Get a recipe ingredients by recipeId
+ */
+export const getApiRecipesRecipeIdIngredients = (
+  recipeId: number,
+  options?: AxiosRequestConfig,
+): Promise<AxiosResponse<RecipeIngredient[]>> => {
+  return axios.get(`/api/recipes/${recipeId}/ingredients`, options);
+};
+
+export const getGetApiRecipesRecipeIdIngredientsKey = (recipeId: number) =>
+  [`/api/recipes/${recipeId}/ingredients`] as const;
+
+export type GetApiRecipesRecipeIdIngredientsQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getApiRecipesRecipeIdIngredients>>
+>;
+export type GetApiRecipesRecipeIdIngredientsQueryError = AxiosError<unknown>;
+
+/**
+ * @summary Get a recipe ingredients by recipeId
+ */
+export const useGetApiRecipesRecipeIdIngredients = <TError = AxiosError<unknown>>(
+  recipeId: number,
+  options?: {
+    swr?: SWRConfiguration<Awaited<ReturnType<typeof getApiRecipesRecipeIdIngredients>>, TError> & {
+      swrKey?: Key;
+      enabled?: boolean;
+    };
+    axios?: AxiosRequestConfig;
+  },
+) => {
+  const { swr: swrOptions, axios: axiosOptions } = options ?? {};
+
+  const isEnabled = swrOptions?.enabled !== false && !!recipeId;
+  const swrKey =
+    swrOptions?.swrKey ??
+    (() => (isEnabled ? getGetApiRecipesRecipeIdIngredientsKey(recipeId) : null));
+  const swrFn = () => getApiRecipesRecipeIdIngredients(recipeId, axiosOptions);
+
+  const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions);
+
+  return {
+    swrKey,
+    ...query,
+  };
+};
+
+/**
+ * @summary Get a recipe steps by recipeId
+ */
+export const getApiRecipesRecipeIdSteps = (
+  recipeId: number,
+  options?: AxiosRequestConfig,
+): Promise<AxiosResponse<RecipeStep[]>> => {
+  return axios.get(`/api/recipes/${recipeId}/steps`, options);
+};
+
+export const getGetApiRecipesRecipeIdStepsKey = (recipeId: number) =>
+  [`/api/recipes/${recipeId}/steps`] as const;
+
+export type GetApiRecipesRecipeIdStepsQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getApiRecipesRecipeIdSteps>>
+>;
+export type GetApiRecipesRecipeIdStepsQueryError = AxiosError<unknown>;
+
+/**
+ * @summary Get a recipe steps by recipeId
+ */
+export const useGetApiRecipesRecipeIdSteps = <TError = AxiosError<unknown>>(
+  recipeId: number,
+  options?: {
+    swr?: SWRConfiguration<Awaited<ReturnType<typeof getApiRecipesRecipeIdSteps>>, TError> & {
+      swrKey?: Key;
+      enabled?: boolean;
+    };
+    axios?: AxiosRequestConfig;
+  },
+) => {
+  const { swr: swrOptions, axios: axiosOptions } = options ?? {};
+
+  const isEnabled = swrOptions?.enabled !== false && !!recipeId;
+  const swrKey =
+    swrOptions?.swrKey ?? (() => (isEnabled ? getGetApiRecipesRecipeIdStepsKey(recipeId) : null));
+  const swrFn = () => getApiRecipesRecipeIdSteps(recipeId, axiosOptions);
 
   const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions);
 
@@ -127,25 +224,27 @@ export const useGetApiUsers = <TError = AxiosError<unknown>>(options?: {
 /**
  * @summary Get a user by ID
  */
-export const getApiUsersId = (
-  id: number,
+export const getApiUsersUserId = (
+  userId: number,
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<User>> => {
-  return axios.get(`/api/users/${id}`, options);
+  return axios.get(`/api/users/${userId}`, options);
 };
 
-export const getGetApiUsersIdKey = (id: number) => [`/api/users/${id}`] as const;
+export const getGetApiUsersUserIdKey = (userId: number) => [`/api/users/${userId}`] as const;
 
-export type GetApiUsersIdQueryResult = NonNullable<Awaited<ReturnType<typeof getApiUsersId>>>;
-export type GetApiUsersIdQueryError = AxiosError<unknown>;
+export type GetApiUsersUserIdQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getApiUsersUserId>>
+>;
+export type GetApiUsersUserIdQueryError = AxiosError<unknown>;
 
 /**
  * @summary Get a user by ID
  */
-export const useGetApiUsersId = <TError = AxiosError<unknown>>(
-  id: number,
+export const useGetApiUsersUserId = <TError = AxiosError<unknown>>(
+  userId: number,
   options?: {
-    swr?: SWRConfiguration<Awaited<ReturnType<typeof getApiUsersId>>, TError> & {
+    swr?: SWRConfiguration<Awaited<ReturnType<typeof getApiUsersUserId>>, TError> & {
       swrKey?: Key;
       enabled?: boolean;
     };
@@ -154,9 +253,9 @@ export const useGetApiUsersId = <TError = AxiosError<unknown>>(
 ) => {
   const { swr: swrOptions, axios: axiosOptions } = options ?? {};
 
-  const isEnabled = swrOptions?.enabled !== false && !!id;
-  const swrKey = swrOptions?.swrKey ?? (() => (isEnabled ? getGetApiUsersIdKey(id) : null));
-  const swrFn = () => getApiUsersId(id, axiosOptions);
+  const isEnabled = swrOptions?.enabled !== false && !!userId;
+  const swrKey = swrOptions?.swrKey ?? (() => (isEnabled ? getGetApiUsersUserIdKey(userId) : null));
+  const swrFn = () => getApiUsersUserId(userId, axiosOptions);
 
   const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions);
 
