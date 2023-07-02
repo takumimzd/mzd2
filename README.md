@@ -7,3 +7,5 @@
 - SWR
 - Axios
 - Orval
+- husky
+- 
