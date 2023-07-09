@@ -1,4 +1,5 @@
 import { Container, SimpleGrid } from '@mantine/core';
+import Link from 'next/link';
 import { Card } from '@/components/Card';
 
 export type Props = {
@@ -17,14 +18,16 @@ export const Presentation = ({ recipeWithUser }: Props) => {
       <SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 2 }]}>
         {recipeWithUser.map((recipe) => (
           <li key={recipe.recipeId}>
-            <Card
-              image={recipe.recipeImage}
-              title={recipe.recipeTitle}
-              author={{
-                name: recipe.userName,
-                image: recipe.userImage,
-              }}
-            />
+            <Link href={`/recipes/${recipe.recipeId}`}>
+              <Card
+                image={recipe.recipeImage}
+                title={recipe.recipeTitle}
+                author={{
+                  name: recipe.userName,
+                  image: recipe.userImage,
+                }}
+              />
+            </Link>
           </li>
         ))}
       </SimpleGrid>
