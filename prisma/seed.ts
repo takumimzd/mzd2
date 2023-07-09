@@ -8,13 +8,13 @@ async function main() {
         name: 'からあげ',
         description: 'おいしい唐揚げです。いつもこれで作ってます。',
         userId: 1,
-        imageUrl: 'https://picsum.photos/200/300',
+        imageUrl: 'https://picsum.photos/600/700',
       },
       {
         name: 'ラーメン',
         description: 'おいしいラーメンです。いつもこれで作ってます。',
         userId: 1,
-        imageUrl: 'https://picsum.photos/200/300',
+        imageUrl: 'https://picsum.photos/600/700',
       },
     ],
   });
@@ -45,12 +45,12 @@ async function main() {
   });
   await prisma.recipeStepImage.createMany({
     data: [
-      { imageUrl: 'https://picsum.photos/200/300', recipeStepId: 1 },
-      { imageUrl: 'https://picsum.photos/200/300', recipeStepId: 2 },
-      { imageUrl: 'https://picsum.photos/200/300', recipeStepId: 2 },
-      { imageUrl: 'https://picsum.photos/200/300', recipeStepId: 3 },
-      { imageUrl: 'https://picsum.photos/200/300', recipeStepId: 3 },
-      { imageUrl: 'https://picsum.photos/200/300', recipeStepId: 4 },
+      { imageUrl: 'https://picsum.photos/600/700', recipeStepId: 1 },
+      { imageUrl: 'https://picsum.photos/600/700', recipeStepId: 2 },
+      { imageUrl: 'https://picsum.photos/600/700', recipeStepId: 2 },
+      { imageUrl: 'https://picsum.photos/600/700', recipeStepId: 3 },
+      { imageUrl: 'https://picsum.photos/600/700', recipeStepId: 3 },
+      { imageUrl: 'https://picsum.photos/600/700', recipeStepId: 4 },
     ],
   });
 }
