@@ -3,6 +3,7 @@ import { MantineProvider } from '@mantine/core';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { Header } from '@/components/Header';
 import CSR from '@/functions/CSR/CSR';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <MantineProvider withGlobalStyles withNormalizeCSS>
         <CSR>
+          <Header />
           <Component {...pageProps} />
         </CSR>
       </MantineProvider>
