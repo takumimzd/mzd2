@@ -3,6 +3,7 @@ import { MantineProvider } from '@mantine/core';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import CSR from '@/functions/CSR/CSR';
 
@@ -18,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <CSR>
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </CSR>
       </MantineProvider>
     </React.StrictMode>
