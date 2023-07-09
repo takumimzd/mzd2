@@ -23,8 +23,8 @@ export const Header = () => {
   ));
 
   return (
-    <MantineHeader height={60} mb={120}>
-      <Container className={classes.header}>
+    <MantineHeader height={60} mb={120} className={classes.header}>
+      <Container className={classes.headerContainer}>
         <Group spacing={5}>{items}</Group>
       </Container>
     </MantineHeader>

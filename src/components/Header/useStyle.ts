@@ -2,6 +2,11 @@ import { createStyles, rem } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
   header: {
+    position: 'sticky',
+  },
+
+  headerContainer: {
+    position: 'sticky',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
