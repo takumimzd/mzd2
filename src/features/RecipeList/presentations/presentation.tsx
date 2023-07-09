@@ -11,7 +11,7 @@ export type Props = {
   }[];
 };
 
-export const RecipeListPresentation = ({ recipeWithUser }: Props) => {
+export const Presentation = ({ recipeWithUser }: Props) => {
   return (
     <Container py='xl'>
       <SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 2 }]}>

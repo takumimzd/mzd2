@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 import { RecipeList } from '@/features/RecipeList';
+import { Loading } from '@/features/RecipeList/presentations/loading';
 
 const Page = () => {
   return (
     <div>
-      <Suspense fallback={<div>loading</div>}>
+      <Suspense fallback={<Loading />}>
         <RecipeList />
       </Suspense>
     </div>

@@ -1,5 +1,5 @@
 import { useRecipeList } from './hooks';
-import { RecipeListPresentation, Props } from './presentations';
+import { Presentation, Props } from './presentations/presentation';
 
 export const RecipeList = () => {
   const { recipeWithUser } = useRecipeList();
@@ -12,5 +12,5 @@ export const RecipeList = () => {
     userImage: recipe.user.name,
   }));
 
-  return <RecipeListPresentation recipeWithUser={recipeWithUserProps} />;
+  return <Presentation recipeWithUser={recipeWithUserProps} />;
 };
