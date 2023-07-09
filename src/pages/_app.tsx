@@ -5,7 +5,9 @@ import Head from 'next/head';
 import React from 'react';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { GlobalError } from '@/features/GlobalError';
 import CSR from '@/functions/CSR/CSR';
+import { ErrorBoundary } from '@/functions/ErrorBoundary';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -16,11 +18,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <MantineProvider withGlobalStyles withNormalizeCSS>
-        <CSR>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </CSR>
+        <ErrorBoundary fallbackUi={<GlobalError />}>
+          <CSR>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+          </CSR>
+        </ErrorBoundary>
       </MantineProvider>
     </React.StrictMode>
   );
