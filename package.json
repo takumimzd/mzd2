@@ -23,6 +23,7 @@
     "@mantine/hooks": "^6.0.15",
     "@mantine/next": "^6.0.15",
     "@prisma/client": "^4.16.2",
+    "@tabler/icons-react": "^2.23.0",
     "axios": "^1.4.0",
     "next": "13.4.7",
     "react": "18.2.0",

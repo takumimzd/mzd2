@@ -1,8 +1,9 @@
+import '@/styles/reset.css';
 import { MantineProvider } from '@mantine/core';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
-import { SWRConfig } from 'swr';
+import CSR from '@/functions/CSR/CSR';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,25 +13,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name='description' content='introduction' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
-      <SWRConfig
-        value={{
-          revalidateOnFocus: false,
-          revalidateOnReconnect: false,
-          revalidateIfStale: false,
-          revalidateOnMount: false,
-        }}
-      >
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            /** Put your mantine theme override here */
-            colorScheme: 'light',
-          }}
-        >
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <CSR>
           <Component {...pageProps} />
-        </MantineProvider>
-      </SWRConfig>
+        </CSR>
+      </MantineProvider>
     </React.StrictMode>
   );
 }
