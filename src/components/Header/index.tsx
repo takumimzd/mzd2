@@ -5,7 +5,7 @@ import { useStyles } from './useStyle';
 
 const LINKS = [
   { link: '/', label: 'Home' } as const,
-  { link: '/recipes', label: 'Recipes' } as const,
+  { link: '/blogs', label: 'Blogs' } as const,
 ] as const;
 
 export const Header = () => {

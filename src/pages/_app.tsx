@@ -6,7 +6,6 @@ import React from 'react';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { GlobalError } from '@/features/GlobalError';
-import CSR from '@/functions/CSR/CSR';
 import { ErrorBoundary } from '@/functions/ErrorBoundary';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -19,11 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <MantineProvider withGlobalStyles withNormalizeCSS>
         <ErrorBoundary fallbackUi={<GlobalError />}>
-          <CSR>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-          </CSR>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
         </ErrorBoundary>
       </MantineProvider>
     </React.StrictMode>

@@ -4,7 +4,7 @@ import { useStyles } from './useStyle';
 type Props = {
   image: string;
   title: string;
-  author: {
+  author?: {
     name: string;
     image: string;
   };
@@ -21,12 +21,14 @@ export const Card = ({ image, title, author }: Props) => {
       <Text fw={700} className={classes.title} mt='xs'>
         {title}
       </Text>
-      <Group mt='lg'>
-        <Avatar src={author.image} radius='sm' />
-        <div>
-          <Text fw={500}>{author.name}</Text>
-        </div>
-      </Group>
+      {author && (
+        <Group mt='lg'>
+          <Avatar src={author.image} radius='sm' />
+          <div>
+            <Text fw={500}>{author.name}</Text>
+          </div>
+        </Group>
+      )}
     </MantineCard>
   );
 };

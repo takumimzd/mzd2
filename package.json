@@ -7,14 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "ps": "npx prisma studio",
-    "pdp": "npx prisma db push",
     "lint": "next lint --dir src",
     "lint:fix": "next lint --dir src --fix",
-    "format": "prettier --write --ignore-path .gitignore 'src/**/*.{js,jsx,ts,tsx,json}' 'prisma/**/*.prisma'"
-  },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "format": "prettier --write --ignore-path .gitignore 'src/**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -22,13 +17,11 @@
     "@mantine/core": "^6.0.15",
     "@mantine/hooks": "^6.0.15",
     "@mantine/next": "^6.0.15",
-    "@prisma/client": "^4.16.2",
     "@tabler/icons-react": "^2.23.0",
     "axios": "^1.4.0",
     "next": "13.4.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "swr": "^2.2.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "20.3.3",
@@ -45,7 +38,6 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.8",
     "prettier-plugin-prisma": "^4.13.0",
-    "prisma": "^4.16.2",
     "typescript": "5.1.6"
   },
   "lint-staged": {

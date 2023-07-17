@@ -1,15 +1,15 @@
 import { Suspense } from 'react';
+import { BlogList } from '@/features/BlogList';
+import { BlogListLoading } from '@/features/BlogList/presentations/loading';
 import { GlobalError } from '@/features/GlobalError';
-import { RecipeList } from '@/features/RecipeList';
-import { Loading } from '@/features/RecipeList/presentations/loading';
 import { ErrorBoundary } from '@/functions/ErrorBoundary';
 
 const Page = () => {
   return (
     <div>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<BlogListLoading />}>
         <ErrorBoundary fallbackUi={<GlobalError />}>
-          <RecipeList />
+          <BlogList />
         </ErrorBoundary>
       </Suspense>
     </div>

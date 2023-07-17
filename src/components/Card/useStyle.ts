@@ -2,6 +2,7 @@ import { createStyles, rem } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
   card: {
+    height: '100%',
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     transition: 'transform 150ms ease, box-shadow 150ms ease',
 
