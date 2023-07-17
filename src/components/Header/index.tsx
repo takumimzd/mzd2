@@ -3,10 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useStyles } from './useStyle';
 
-const LINKS = [
-  { link: '/', label: 'Home' } as const,
-  { link: '/blogs', label: 'Blogs' } as const,
-] as const;
+const LINKS = [{ link: '/', label: 'Home' } as const] as const;
 
 export const Header = () => {
   const { classes, cx } = useStyles();
@@ -23,7 +20,7 @@ export const Header = () => {
   ));
 
   return (
-    <MantineHeader height={60} mb={120} className={classes.header}>
+    <MantineHeader height={60} mb={50} className={classes.header}>
       <Container className={classes.headerContainer}>
         <Group spacing={5}>{items}</Group>
       </Container>
