@@ -7,6 +7,11 @@ type Props = {
 
 export const Recipe = ({ recipeId }: Props) => {
   const { recipe, ingredients, steps } = useRecipe({ recipeId });
-  console.log({ recipe: recipe, ingredients, steps });
-  return <Presentation />;
+  return (
+    <Presentation
+      recipeImage={recipe.imageUrl}
+      recipeName={recipe.name}
+      recipeDescription={recipe.description}
+    />
+  );
 };
