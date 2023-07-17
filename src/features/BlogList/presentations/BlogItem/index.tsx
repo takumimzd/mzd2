@@ -1,16 +1,13 @@
-import { Card as MantineCard, Image, Group, Text, Avatar } from '@mantine/core';
+import { Card as MantineCard, Image, Group, Text, Card } from '@mantine/core';
 import { useStyles } from './useStyle';
 
 type Props = {
   image: string;
   title: string;
-  author?: {
-    name: string;
-    image: string;
-  };
+  date: string;
 };
 
-export const Card = ({ image, title, author }: Props) => {
+export const BlogItem = ({ image, title, date }: Props) => {
   const { classes } = useStyles();
 
   return (
@@ -21,14 +18,13 @@ export const Card = ({ image, title, author }: Props) => {
       <Text fw={700} className={classes.title} mt='xs'>
         {title}
       </Text>
-      {author && (
-        <Group mt='lg'>
-          <Avatar src={author.image} radius='sm' />
-          <div>
-            <Text fw={500}>{author.name}</Text>
-          </div>
+      <Card.Section className={classes.footer}>
+        <Group position='apart'>
+          <Text fz='xs' c='dimmed'>
+            {date}
+          </Text>
         </Group>
-      )}
+      </Card.Section>
     </MantineCard>
   );
 };

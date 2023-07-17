@@ -1,4 +1,4 @@
-import { createStyles, rem } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
   card: {
@@ -19,9 +19,5 @@ export const useStyles = createStyles((theme) => ({
 
   footer: {
     padding: `${theme.spacing.xs} ${theme.spacing.lg}`,
-    marginTop: theme.spacing.md,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
   },
 }));
