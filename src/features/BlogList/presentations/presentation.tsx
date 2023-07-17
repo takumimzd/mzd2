@@ -13,8 +13,8 @@ export type Props = {
 
 export const BlogListPresentation = ({ blogs }: Props) => {
   return (
-    <Container maw='1200px' py='xl'>
-      <SimpleGrid spacing='xl' cols={4} breakpoints={[{ maxWidth: 'sm', cols: 2 }]}>
+    <Container maw='1200px' py='xl' px={0}>
+      <SimpleGrid spacing='xl' style={{}} cols={4} breakpoints={[{ maxWidth: 'sm', cols: 2 }]}>
         {blogs.map((blog) => (
           <li key={blog.id}>
             <a href={blog.url} target='_blank'>
