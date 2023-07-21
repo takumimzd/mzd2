@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <React.StrictMode>
       <Head>
-        <title>Me</title>
+        <title>kamio</title>
         <meta name='description' content='introduction' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
