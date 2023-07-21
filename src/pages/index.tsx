@@ -1,4 +1,4 @@
-import { Container } from '@mantine/core';
+import { Container, Title } from '@mantine/core';
 import { BlogList } from '@/features/BlogList';
 import { GlobalError } from '@/features/GlobalError';
 import { ProfileCard } from '@/features/ProfileCard';
@@ -12,6 +12,7 @@ const Page = () => {
           <ProfileCard />
         </Container>
         <Container maw='1200px' mt='xl'>
+          <Title order={4}>Blogs</Title>
           <BlogList />
         </Container>
       </Container>
