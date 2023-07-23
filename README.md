@@ -1,3 +1,4 @@
 # Stack
 
 - Next.js
+- Mantine
