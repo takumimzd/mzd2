@@ -11,25 +11,27 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-type Props = {
-  image: string;
-  avatar: string;
-  name: string;
-  job: string;
-};
-
-export const Presentation = ({ image, avatar, name, job }: Props) => {
+export const Presentation = () => {
   const { classes } = useStyles();
 
   return (
     <Card withBorder padding='xl' radius='md' className={classes.card}>
-      <Card.Section sx={{ backgroundImage: `url(${image})`, height: 140 }} />
-      <Avatar src={avatar} size={80} radius={80} mx='auto' mt={-30} className={classes.avatar} />
+      <Card.Section
+        sx={{ backgroundImage: `url(${'https://picsum.photos/1200/300'})`, height: 140 }}
+      />
+      <Avatar
+        src='profile.jpg'
+        size={80}
+        radius={80}
+        mx='auto'
+        mt={-30}
+        className={classes.avatar}
+      />
       <Text ta='center' fz='lg' fw={500} mt='sm'>
-        {name}
+        かみお
       </Text>
       <Text ta='center' fz='sm' c='dimmed'>
-        {job}
+        Frontend Engineer
       </Text>
       <Container fz='sm' c='dimmed' display='flex' style={{ justifyContent: 'center' }}>
         <ActionIcon
