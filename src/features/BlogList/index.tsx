@@ -2,9 +2,16 @@ import { BlogListPresentation, Props } from './presentations/presentation';
 
 const blogs: Props['blogs'] = [
   {
+    id: 8,
+    title: '軽量なグローバル状態管理ライブラリ「zustand」',
+    date: '2023/08/08',
+    url: 'https://zenn.dev/stmn_inc/articles/f1101cfa20dedc',
+    image: 'https://zenn.dev/images/og-large.png',
+  },
+  {
     id: 7,
     title: 'Popover API さわってみた',
-    date: '2022/12/22',
+    date: '2023/12/22',
     url: 'https://zenn.dev/stmn_inc/articles/1ce5afa60f0c9a',
     image: 'https://zenn.dev/images/og-large.png',
   },
