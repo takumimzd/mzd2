@@ -2,6 +2,13 @@ import { BlogListPresentation, Props } from './presentations/presentation';
 
 const blogs: Props['blogs'] = [
   {
+    id: 9,
+    title: 'TUNAGの新フロントエンドを支える技術と設計',
+    date: '2023/08/15',
+    url: 'https://tech.stmn.co.jp/entry/2023/08/15/112732',
+    image: 'hatena.gif',
+  },
+  {
     id: 8,
     title: '軽量なグローバル状態管理ライブラリ「zustand」',
     date: '2023/08/08',
