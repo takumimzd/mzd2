@@ -2,6 +2,20 @@ import { BlogListPresentation, Props } from './presentations/presentation';
 
 const blogs: Props['blogs'] = [
   {
+    id: 11,
+    title: 'MSWのモック作成をもう少しだけ自動化する',
+    date: '2023/12/15',
+    url: 'https://zenn.dev/stmn_inc/articles/1b30b0ac43515b',
+    image: 'https://zenn.dev/images/og-large.png',
+  },
+  {
+    id: 10,
+    title: 'レガシーフロントエンドを リプレイスしたら 開発生産性が向上しました',
+    date: '2023/09/28',
+    url: 'https://speakerdeck.com/kamio/regasihurontoendowo-ripureisusitara-kai-fa-sheng-chan-xing-gaxiang-shang-simasita',
+    image: 'speakerdeck-logo.jpeg',
+  },
+  {
     id: 9,
     title: 'TUNAGの新フロントエンドを支える技術と設計',
     date: '2023/08/15',
